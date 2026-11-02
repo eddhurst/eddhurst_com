@@ -42,16 +42,8 @@
     padding-inline-start: 0.42em;
   }
 
-  /* A small carved "block" sitting on the baseline of the second line */
-  .hero__line--accent::after {
-    content: "";
-    display: inline-block;
-    inline-size: 0.24em;
-    aspect-ratio: 1;
-    margin-inline-start: 0.06em;
-    background: var(--clay);
-    vertical-align: baseline;
-  }
+/* The full stop is set in clay: a small carved block at the end of the line */
+.hero__stop { color: var(--clay); }
 
   .hero__aside {
     display: grid;
@@ -116,15 +108,19 @@
     display: grid;
     gap: var(--space-s);
     padding-block: var(--space-l);
-    border-block-end: var(--rule);
-  }
+  border-block-end: var(--rule);
+  container-type: inline-size;
+}
 
-  .expertise__number {
+.expertise__number {
     color: var(--teal);
   }
 
-  .expertise__title {
-    font-size: var(--step-4);
+.expertise__title {
+  font-size: var(--step-4);
+  /* Scale to the block's own width so "Accessibility" never crosses the rule */
+  font-size: min(var(--step-4), 9.5cqi);
+  overflow-wrap: anywhere;
     font-weight: 900;
     font-stretch: 125%;
     letter-spacing: -0.04em;

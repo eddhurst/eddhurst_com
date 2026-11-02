@@ -101,7 +101,6 @@
   @media (forced-colors: active) {
     .site-brand::before,
     .site-nav__link[aria-current="page"]::before,
-    .hero__line--accent::after,
     .sculpture-intro__mark { background: CanvasText; }
     .expertise__item::before { display: none; }
     :focus-visible { outline-color: Highlight; }
