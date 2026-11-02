@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000" role="img" aria-label="Placeholder for sculpture photograph 02">
+  <defs>
+    <pattern id="hatch" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="24" stroke="#292D2A" stroke-opacity="0.08" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1500" height="1000" fill="#C9BFAE"/>
+  <rect width="1500" height="1000" fill="url(#hatch)"/>
+  <rect x="40" y="40" width="1420" height="920" fill="none" stroke="#292D2A" stroke-width="3"/>
+  <line x1="40" y1="40" x2="1460" y2="960" stroke="#292D2A" stroke-opacity="0.25" stroke-width="2"/>
+  <line x1="1460" y1="40" x2="40" y2="960" stroke="#292D2A" stroke-opacity="0.25" stroke-width="2"/>
+  <rect x="430.0" y="410.0" width="640.0" height="180.0" fill="#E9E3D7" stroke="#292D2A" stroke-width="3"/>
+  <text x="750.0" y="490.0" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="40" font-weight="700" fill="#292D2A" letter-spacing="4">PLACEHOLDER 02</text>
+  <text x="750.0" y="550.0" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="24" fill="#292D2A">Sculpture photograph · 3:2</text>
+  <text x="64" y="936" font-family="ui-monospace, Menlo, monospace" font-size="22" fill="#292D2A">1500 × 1000</text>
+</svg>

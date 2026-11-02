@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edd Hurst, I Imagine — CSS, HTML, accessibility and stone</title>
+  <meta name="description" content="Edd Hurst: programmer, accessibility advocate, CSS enthusiast, design systems specialist and stone carver. Making things for screens, and occasionally out of stone.">
+  <meta name="theme-color" content="#E9E3D7">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-brand" href="index.html">Edd Hurst</a>
+      <nav aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="site-nav__link" href="projects.html">Projects</a></li>
+          <li><a class="site-nav__link" href="sculpture.html">Sculpture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__index annotation" aria-hidden="true">
+          <span>Index / 001</span>
+          <span>Making things, mostly on purpose.</span>
+        </div>
+
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">Edd Hurst,</span>
+          <span class="hero__line hero__line--accent">I imagine.</span>
+        </h1>
+
+        <div class="hero__aside">
+          <p class="hero__lede">Making things for screens, and occasionally out of stone.</p>
+          <ul class="hero__disciplines annotation" aria-label="Disciplines">
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>Accessibility</li>
+            <li>Design systems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="expertise-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="annotation">§ 01 — Expertise</p>
+          <h2 class="section-head__title" id="expertise-title">What I make things with.</h2>
+          <p class="section-head__intro">Curious about how things work, and about building them properly from the beginning.</p>
+        </div>
+
+        <ol class="expertise">
+          <li class="expertise__item">
+            <p class="expertise__number annotation" aria-hidden="true">01</p>
+            <h3 class="expertise__title">CSS</h3>
+            <p class="expertise__text">Creative, robust and maintainable styling. Enjoys exploring what CSS can do beyond the obvious.</p>
+          </li>
+          <li class="expertise__item">
+            <p class="expertise__number annotation" aria-hidden="true">02</p>
+            <h3 class="expertise__title">HTML</h3>
+            <p class="expertise__text">Semantic, resilient foundations. Building things properly from the beginning.</p>
+          </li>
+          <li class="expertise__item">
+            <p class="expertise__number annotation" aria-hidden="true">03</p>
+            <h3 class="expertise__title">Accessibility</h3>
+            <p class="expertise__text">Making the web work for everyone. Accessibility should be considered throughout the design and development process.</p>
+          </li>
+          <li class="expertise__item">
+            <p class="expertise__number annotation" aria-hidden="true">04</p>
+            <h3 class="expertise__title">Design Systems</h3>
+            <p class="expertise__text">Creating consistent, scalable and understandable interface systems.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="experiments-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="annotation">§ 02 — Selected experiments</p>
+          <h2 class="section-head__title" id="experiments-title">Things on the workbench.</h2>
+          <p class="section-head__intro">A few personal projects, utilities and experiments. Digital things, physical things, and everything between.</p>
+        </div>
+
+        <div data-projects="featured">
+          <noscript>
+            <p class="empty-state">This list is built from a small data file and needs JavaScript. Everything else on the site works without it.</p>
+          </noscript>
+        </div>
+
+        <p class="project-list__more">
+          <a class="arrow-link" href="projects.html">
+            <span>All projects</span>
+            <svg class="arrow-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section sculpture-intro" aria-labelledby="sculpture-title">
+      <div class="wrap sculpture-intro__grid">
+        <figure class="sculpture-intro__figure">
+          <img src="images/sculptures/placeholder-01.svg" width="1200" height="1500" alt="Placeholder: a sculpture photograph will go here." loading="lazy" decoding="async">
+          <figcaption class="sculpture-intro__caption annotation">
+            <span>Fig. 01</span>
+            <span class="tag tag--placeholder">Placeholder photograph</span>
+          </figcaption>
+        </figure>
+
+        <div class="sculpture-intro__text">
+          <div class="sculpture-intro__mark" aria-hidden="true"></div>
+          <p class="annotation">§ 03 — Stone</p>
+          <h2 class="sculpture-intro__title" id="sculpture-title">A different kind of making.</h2>
+          <p>A slower, more physical kind of problem solving, where the material has a say in the final result.</p>
+          <p>
+            <a class="arrow-link" href="sculpture.html">
+              <span>See the sculpture</span>
+              <svg class="arrow-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">Edd Hurst,<br><span>I imagine.</span></p>
+          <p class="site-footer__tagline">A little bit of code. A little bit of stone.</p>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__links">
+            <li data-social="github"><span class="is-pending">GitHub<span class="is-pending__note">(coming soon)</span></span></li>
+            <li data-social="linkedin"><span class="is-pending">LinkedIn<span class="is-pending__note">(coming soon)</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Small print</h2>
+          <ul class="site-footer__links">
+            <li><a href="privacy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-current-year>2026</span> Edd Hurst</p>
+        <p>Hand-built HTML &amp; CSS. No trackers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/site-config.js" defer></script>
+  <script src="data/projects.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

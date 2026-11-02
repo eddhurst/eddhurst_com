@@ -1,0 +1,622 @@
+/* Components — loaded after styles.css, which declares the layer order. */
+@layer components {
+
+  /* =========================================================
+     Hero
+     ========================================================= */
+  .hero {
+    position: relative;
+    border-block-end: var(--rule);
+    overflow: clip;
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-l);
+    padding-block: var(--space-xl) var(--space-l);
+  }
+
+  .hero__index {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding-block-end: var(--space-xs);
+    border-block-end: var(--rule-thin);
+  }
+
+  .hero__title {
+    font-size: clamp(3.1rem, 0.6rem + 12.5vw, 12.5rem);
+    font-weight: 900;
+    font-stretch: 125%;
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    text-wrap: initial;
+  }
+
+  .hero__line { display: block; }
+
+  .hero__line--accent {
+    color: var(--teal);
+    /* the second line steps inwards, breaking the left edge on purpose */
+    padding-inline-start: 0.42em;
+  }
+
+  /* A small carved "block" sitting on the baseline of the second line */
+  .hero__line--accent::after {
+    content: "";
+    display: inline-block;
+    inline-size: 0.24em;
+    aspect-ratio: 1;
+    margin-inline-start: 0.06em;
+    background: var(--clay);
+    vertical-align: baseline;
+  }
+
+  .hero__aside {
+    display: grid;
+    gap: var(--space-m);
+    align-content: end;
+  }
+
+  .hero__lede {
+    max-inline-size: 26ch;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 600;
+    font-stretch: 100%;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .hero__disciplines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.6em;
+    padding-block: var(--space-xs);
+    border-block: var(--rule-thin);
+  }
+  .hero__disciplines li + li::before {
+    content: "/";
+    margin-inline-end: 0.6em;
+    color: var(--teal);
+  }
+
+  /* =========================================================
+     Section heads — numbered, ruled, architectural
+     ========================================================= */
+  .section-head {
+    display: grid;
+    gap: var(--space-xs) var(--space-m);
+    padding-block-end: var(--space-m);
+    margin-block-end: var(--space-l);
+    border-block-end: var(--rule);
+  }
+
+  .section-head__title {
+    font-size: var(--step-4);
+    font-weight: 900;
+    font-stretch: 118%;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+
+  .section-head__intro { max-inline-size: 44ch; }
+
+  /* =========================================================
+     Expertise
+     ========================================================= */
+  .expertise {
+    display: grid;
+    border-block-start: var(--rule);
+  }
+
+  .expertise__item {
+    position: relative;
+    display: grid;
+    gap: var(--space-s);
+    padding-block: var(--space-l);
+    border-block-end: var(--rule);
+  }
+
+  .expertise__number {
+    color: var(--teal);
+  }
+
+  .expertise__title {
+    font-size: var(--step-4);
+    font-weight: 900;
+    font-stretch: 125%;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  .expertise__text { max-inline-size: 38ch; }
+
+  /* Hover is decorative only: a teal bar draws in along the top rule */
+  .expertise__item::before {
+    content: "";
+    position: absolute;
+    inset-block-start: calc(var(--rule-width) * -1);
+    inset-inline: 0;
+    block-size: 6px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .expertise__item:hover::before { transform: scaleX(1); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .expertise__item::before { transition: transform 420ms var(--ease-out); }
+  }
+
+  /* =========================================================
+     Projects — shared list used on home + projects pages
+     ========================================================= */
+  .project-list { border-block-start: var(--rule); }
+
+  .project {
+    container-type: inline-size;
+    border-block-end: var(--rule);
+  }
+
+  .project__inner {
+    display: grid;
+    gap: var(--space-s);
+    padding-block: var(--space-m);
+  }
+
+  .project__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2xs) var(--space-s);
+  }
+
+  .project__number { color: var(--teal); }
+
+  .project__title {
+    font-size: var(--step-3);
+    font-weight: 800;
+    font-stretch: 115%;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .project__description { max-inline-size: var(--measure); }
+
+  .project__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xs) var(--space-xs);
+  }
+  .project__tech li::before {
+    content: "+";
+    margin-inline-end: 0.35em;
+    color: var(--teal);
+  }
+
+  .project__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--space-m);
+  }
+
+  .project__thumb {
+    aspect-ratio: 4 / 3;
+    border: var(--rule);
+    background: var(--sea-glass);
+    overflow: hidden;
+  }
+  .project__thumb img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  /* Wider cards lay out in columns — driven by the card's own width */
+  @container (min-width: 46rem) {
+    .project__inner {
+      grid-template-columns: 9rem minmax(0, 1fr) minmax(0, 16rem);
+      align-items: start;
+      gap: var(--space-s) var(--space-l);
+    }
+    .project__meta {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      flex-direction: column;
+      align-items: start;
+    }
+    .project__body { grid-column: 2; }
+    .project__thumb { grid-column: 3; grid-row: 1 / span 3; }
+  }
+
+  .project__body > * + * { margin-block-start: var(--space-s); }
+
+  /* Placeholder entries are clearly marked */
+  .project.is-placeholder .project__title { color: color-mix(in srgb, var(--charcoal) 80%, var(--limestone)); }
+
+  .project-list__more {
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: var(--space-l);
+  }
+
+  .empty-state {
+    padding: var(--space-l);
+    border: var(--rule);
+    border-style: dashed;
+  }
+
+  /* =========================================================
+     Arrow link — a "button-like" link for primary actions
+     ========================================================= */
+  .arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75em;
+    min-block-size: 44px;
+    padding: var(--space-xs) var(--space-m);
+    border: var(--rule);
+    border-color: currentColor;
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: transparent;
+  }
+  .arrow-link__icon {
+    inline-size: 1.25em;
+    block-size: 1.25em;
+    flex-shrink: 0;
+  }
+  .arrow-link:hover {
+    background: var(--charcoal);
+    color: var(--limestone);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .arrow-link { transition: background-color var(--duration), color var(--duration); }
+    .arrow-link__icon { transition: translate var(--duration) var(--ease-out); }
+    .arrow-link:hover .arrow-link__icon { translate: 0.3em 0; }
+  }
+
+  /* =========================================================
+     Sculpture introduction — the warm, physical counterpoint
+     ========================================================= */
+  .sculpture-intro {
+    --color-bg: var(--sandstone);
+    --color-link: var(--charcoal);
+    --color-focus: var(--charcoal);
+    --color-focus-halo: var(--sandstone);
+    background: var(--color-bg);
+    border-block: var(--rule);
+  }
+
+  .sculpture-intro__grid {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  .sculpture-intro__figure {
+    position: relative;
+    border: var(--rule);
+    background: var(--limestone);
+  }
+  .sculpture-intro__figure img {
+    inline-size: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+  .sculpture-intro__caption {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding: var(--space-xs) var(--space-s);
+    border-block-start: var(--rule);
+    background: var(--limestone);
+  }
+
+  .sculpture-intro__title {
+    font-size: var(--step-4);
+    font-weight: 900;
+    font-stretch: 110%;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+
+  /* The clay block: a quiet nod to a freshly cut face of stone */
+  .sculpture-intro__mark {
+    inline-size: clamp(3rem, 8vw, 6rem);
+    aspect-ratio: 1;
+    background: var(--clay);
+    border: var(--rule);
+  }
+
+  .sculpture-intro__text > * + * { margin-block-start: var(--space-m); }
+  .sculpture-intro__text p:not(.annotation) {
+    max-inline-size: 36ch;
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+
+  /* =========================================================
+     Interior page intro (projects / sculpture / privacy)
+     ========================================================= */
+  .page-intro {
+    border-block-end: var(--rule);
+  }
+  .page-intro__grid {
+    display: grid;
+    gap: var(--space-m);
+    padding-block: var(--space-xl) var(--space-l);
+  }
+  .page-intro__title {
+    font-size: clamp(2.75rem, 0.9rem + 8.5vw, 9rem);
+    font-weight: 900;
+    font-stretch: 125%;
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+  }
+  .page-intro__title .text-accent { display: block; }
+  .page-intro__lede {
+    max-inline-size: 34ch;
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+
+  /* =========================================================
+     Sculpture gallery — masonry-inspired columns
+     ========================================================= */
+  .gallery {
+    columns: 1;
+    column-gap: var(--space-l);
+  }
+
+  .gallery__item {
+    break-inside: avoid;
+    margin-block-end: var(--space-xl);
+  }
+
+  .gallery__link {
+    display: block;
+    position: relative;
+    border: var(--rule);
+    background: var(--sandstone);
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+  }
+  .gallery__link img {
+    inline-size: 100%;
+  }
+  .gallery__zoom {
+    position: absolute;
+    inset-block-end: var(--space-xs);
+    inset-inline-end: var(--space-xs);
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    background: var(--charcoal);
+    color: var(--limestone);
+  }
+  .gallery__zoom svg { inline-size: 1.25rem; block-size: 1.25rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .gallery__link img { transition: scale 600ms var(--ease-out); }
+    .gallery__link:hover img { scale: 1.025; }
+  }
+  .gallery__link:hover .gallery__zoom,
+  .gallery__link:focus-visible .gallery__zoom { background: var(--teal); }
+
+  .gallery__caption {
+    display: grid;
+    gap: var(--space-3xs);
+    padding-block-start: var(--space-s);
+  }
+  .gallery__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2xs) var(--space-s);
+  }
+  .gallery__title {
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-stretch: 110%;
+    letter-spacing: -0.02em;
+  }
+  .gallery__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-s);
+    color: var(--teal);
+  }
+  .gallery__description { max-inline-size: 48ch; }
+
+  .notice {
+    display: grid;
+    gap: var(--space-2xs);
+    padding: var(--space-s) var(--space-m);
+    margin-block-end: var(--space-l);
+    border: var(--rule);
+    border-style: dashed;
+    border-color: var(--clay-deep);
+    background: color-mix(in srgb, var(--sandstone) 30%, var(--limestone));
+  }
+  .notice__label { color: var(--clay-deep); }
+
+  /* =========================================================
+     Lightbox — native <dialog>, enhanced by gallery.js
+     ========================================================= */
+  .lightbox {
+    --color-text: var(--limestone);
+    --color-focus: var(--limestone);
+    --color-focus-halo: var(--charcoal);
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: 100%;
+    max-block-size: 100%;
+    padding: 0;
+    border: 0;
+    background: var(--charcoal);
+    color: var(--limestone);
+  }
+  .lightbox::backdrop { background: var(--charcoal); }
+
+  .lightbox__layout {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    block-size: 100%;
+  }
+
+  .lightbox__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+    padding: var(--space-xs) var(--gutter);
+    border-block-end: 1px solid color-mix(in srgb, var(--limestone) 30%, transparent);
+  }
+
+  .lightbox__stage {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-s) var(--space-xs);
+    min-block-size: 0;
+  }
+
+  .lightbox__figure {
+    display: grid;
+    place-items: center;
+    block-size: 100%;
+    min-block-size: 0;
+  }
+  .lightbox__image {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+    inline-size: auto;
+    block-size: auto;
+    object-fit: contain;
+    border: 2px solid var(--limestone);
+  }
+
+  .lightbox__caption {
+    display: grid;
+    gap: var(--space-3xs);
+    padding: var(--space-s) var(--gutter) var(--space-m);
+    border-block-start: 1px solid color-mix(in srgb, var(--limestone) 30%, transparent);
+  }
+  .lightbox__title {
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-stretch: 110%;
+  }
+  .lightbox__details { color: var(--sea-glass); }
+  .lightbox__description { max-inline-size: 60ch; }
+
+  .icon-button {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    padding: 0;
+    border: 2px solid var(--limestone);
+    background: transparent;
+    color: var(--limestone);
+    cursor: pointer;
+  }
+  .icon-button svg { inline-size: 1.4rem; block-size: 1.4rem; }
+  .icon-button:hover {
+    background: var(--limestone);
+    color: var(--charcoal);
+  }
+
+  /* =========================================================
+     Privacy — deliberately plain and readable
+     ========================================================= */
+  .policy {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  .policy__toc {
+    align-self: start;
+    padding-block-start: var(--space-s);
+    border-block-start: var(--rule);
+  }
+  .policy__toc ol {
+    display: grid;
+    gap: 0;
+    margin-block-start: var(--space-xs);
+  }
+  .policy__toc a {
+    display: inline-flex;
+    min-block-size: 44px;
+    align-items: center;
+    color: var(--color-text);
+  }
+  .policy__toc a:hover { color: var(--teal); }
+
+  .prose {
+    max-inline-size: var(--measure);
+  }
+  .prose > * + * { margin-block-start: 1em; }
+  .prose h2 {
+    margin-block-start: var(--space-xl);
+    padding-block-start: var(--space-s);
+    border-block-start: var(--rule);
+    font-size: var(--step-2);
+    font-stretch: 105%;
+    scroll-margin-block-start: var(--space-m);
+  }
+  .prose h2 + * { margin-block-start: var(--space-s); }
+  .prose ul { padding-inline-start: 1.25em; }
+  .prose ul li::marker { color: var(--teal); }
+  .prose li + li { margin-block-start: 0.35em; }
+
+  .prose .policy__short {
+    margin-block-start: 0;
+    padding: var(--space-m);
+    border: var(--rule);
+    background: color-mix(in srgb, var(--sea-glass) 35%, var(--limestone));
+  }
+  .policy__short h2 {
+    margin-block-start: 0;
+    padding-block-start: 0;
+    border: 0;
+  }
+  .policy__short > * + * { margin-block-start: var(--space-s); }
+
+  .policy__closing {
+    margin-block-start: var(--space-xl) !important;
+    padding-block: var(--space-m);
+    border-block: var(--rule);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 700;
+    font-stretch: 105%;
+    line-height: 1.2;
+    color: var(--teal);
+  }
+
+  .policy__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--space-m);
+  }
+
+  .placeholder-text {
+    padding: 0 0.3em;
+    border: 1.5px dashed var(--clay-deep);
+    color: var(--clay-deep);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+}

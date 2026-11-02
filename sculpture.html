@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sculpture — Edd Hurst, I Imagine</title>
+  <meta name="description" content="Made from stone: a collection of objects and sculptures hand-carved by Edd Hurst.">
+  <meta name="theme-color" content="#E9E3D7">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-brand" href="index.html">Edd Hurst</a>
+      <nav aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="projects.html">Projects</a></li>
+          <li><a class="site-nav__link" href="sculpture.html" aria-current="page">Sculpture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="wrap page-intro__grid">
+        <div>
+          <p class="annotation">§ Sculpture — stone carving</p>
+          <h1 class="page-intro__title" id="page-title">Made from <span class="text-accent">stone.</span></h1>
+        </div>
+        <p class="page-intro__lede">A collection of objects and sculptures made by hand.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Gallery">
+      <div class="wrap">
+        <div class="notice" role="note">
+          <p class="notice__label annotation">Placeholder images</p>
+          <p>Photographs of the sculptures haven&apos;t been added yet. Every image below is a marked placeholder showing the layout.</p>
+        </div>
+        <div data-gallery>
+          <noscript>
+            <p class="empty-state">The gallery is built from a small data file and needs JavaScript. Everything else on the site works without it.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+      <div class="lightbox__layout">
+        <div class="lightbox__bar">
+          <p class="annotation" data-lightbox-counter></p>
+          <button class="icon-button" type="button" data-lightbox-close aria-label="Close image viewer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19"/></svg>
+          </button>
+        </div>
+        <div class="lightbox__stage" data-lightbox-dismiss>
+          <button class="icon-button" type="button" data-lightbox-prev aria-label="Previous image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+          <div class="lightbox__figure" data-lightbox-dismiss>
+            <img class="lightbox__image" data-lightbox-image src="data:," alt="">
+          </div>
+          <button class="icon-button" type="button" data-lightbox-next aria-label="Next image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="lightbox__caption">
+          <h2 class="lightbox__title" id="lightbox-title" data-lightbox-title></h2>
+          <p class="lightbox__details annotation" data-lightbox-details></p>
+          <p class="lightbox__description" data-lightbox-description></p>
+          <p class="sr-only" role="status" data-lightbox-status></p>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">Edd Hurst,<br><span>I imagine.</span></p>
+          <p class="site-footer__tagline">A little bit of code. A little bit of stone.</p>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__links">
+            <li data-social="github"><span class="is-pending">GitHub<span class="is-pending__note">(coming soon)</span></span></li>
+            <li data-social="linkedin"><span class="is-pending">LinkedIn<span class="is-pending__note">(coming soon)</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Small print</h2>
+          <ul class="site-footer__links">
+            <li><a href="privacy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-current-year>2026</span> Edd Hurst</p>
+        <p>Hand-built HTML &amp; CSS. No trackers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/site-config.js" defer></script>
+  <script src="data/sculptures.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+</body>
+</html>

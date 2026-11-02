@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Edd Hurst, I Imagine</title>
+  <meta name="description" content="Side projects, utilities and creative experiments by Edd Hurst. Small things, interesting ideas.">
+  <meta name="theme-color" content="#E9E3D7">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="site-brand" href="index.html">Edd Hurst</a>
+      <nav aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="projects.html" aria-current="page">Projects</a></li>
+          <li><a class="site-nav__link" href="sculpture.html">Sculpture</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="wrap page-intro__grid">
+        <div>
+          <p class="annotation">§ Projects — side projects &amp; experiments</p>
+          <h1 class="page-intro__title" id="page-title">Small things. <span class="text-accent">Interesting ideas.</span></h1>
+        </div>
+        <p class="page-intro__lede">Utilities, CSS experiments and other things made mostly on purpose.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="list-title">
+      <div class="wrap">
+        <h2 class="sr-only" id="list-title">All projects</h2>
+        <div data-projects="all">
+          <noscript>
+            <p class="empty-state">This list is built from a small data file and needs JavaScript. Everything else on the site works without it.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__name">Edd Hurst,<br><span>I imagine.</span></p>
+          <p class="site-footer__tagline">A little bit of code. A little bit of stone.</p>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__links">
+            <li data-social="github"><span class="is-pending">GitHub<span class="is-pending__note">(coming soon)</span></span></li>
+            <li data-social="linkedin"><span class="is-pending">LinkedIn<span class="is-pending__note">(coming soon)</span></span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="site-footer__heading">Small print</h2>
+          <ul class="site-footer__links">
+            <li><a href="privacy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <p>&copy; <span data-current-year>2026</span> Edd Hurst</p>
+        <p>Hand-built HTML &amp; CSS. No trackers.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/site-config.js" defer></script>
+  <script src="data/projects.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

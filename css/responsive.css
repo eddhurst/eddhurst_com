@@ -1,0 +1,116 @@
+/* Responsive — mobile-first enhancements. Breakpoints in em so they follow user zoom. */
+@layer responsive {
+
+  /* ---------- Tablet ---------- */
+  @media (min-width: 40em) {
+    .site-footer__grid {
+      grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr));
+    }
+
+    .expertise { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .expertise__item { padding-inline-end: var(--space-l); }
+    .expertise__item:nth-child(even) {
+      padding-inline: var(--space-l) 0;
+      border-inline-start: var(--rule);
+    }
+
+    .gallery { columns: 2; }
+    /* Offset the second column so the gallery never reads as a tidy grid */
+    .gallery__item:nth-child(2) { margin-block-start: var(--space-2xl); }
+
+    .policy__toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-m); }
+  }
+
+  /* ---------- Desktop ---------- */
+  @media (min-width: 64em) {
+    .hero__grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--space-m);
+      padding-block: var(--space-xl);
+    }
+    .hero__index { grid-column: 1 / -1; }
+    .hero__title { grid-column: 1 / -1; }
+    .hero__aside {
+      grid-column: 7 / -1;
+      grid-template-columns: minmax(0, 1fr);
+      padding-inline-start: var(--space-m);
+      border-inline-start: var(--rule);
+    }
+
+    /* Architectural column lines behind the hero — purely decorative */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      inline-size: min(100%, var(--max-width));
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      background:
+        linear-gradient(var(--color-rule), var(--color-rule)) calc(var(--gutter) + (100% - var(--gutter) * 2) * 0.5) 0 / 1px 100% no-repeat;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .section-head {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.4fr);
+      align-items: end;
+    }
+
+    .sculpture-intro__grid {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: var(--space-xl);
+      align-items: end;
+    }
+    /* The photograph bleeds over the top rule, breaking the section edge */
+    .sculpture-intro__figure { margin-block-start: calc(var(--space-2xl) * -1); }
+
+    .page-intro__grid {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      align-items: end;
+      column-gap: var(--space-l);
+    }
+
+    .gallery { columns: 3; }
+    .gallery__item:nth-child(3) { margin-block-start: var(--space-xl); }
+
+    .policy {
+      grid-template-columns: minmax(14rem, 1fr) minmax(0, 2.6fr);
+      gap: var(--space-xl);
+    }
+    .policy__toc {
+      position: sticky;
+      inset-block-start: var(--space-m);
+    }
+    .policy__toc ol { grid-template-columns: 1fr; }
+  }
+
+  @media (min-width: 90em) {
+    .gallery { column-gap: var(--space-xl); }
+  }
+
+  /* ---------- Preferences ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .site-brand::before,
+    .site-nav__link[aria-current="page"]::before,
+    .hero__line--accent::after,
+    .sculpture-intro__mark { background: CanvasText; }
+    .expertise__item::before { display: none; }
+    :focus-visible { outline-color: Highlight; }
+  }
+
+  @media print {
+    .site-header nav, .skip-link, .lightbox, .policy__toc { display: none !important; }
+    body { background: #fff; color: #000; }
+    .site-footer { background: #fff; color: #000; }
+    a::after { content: " (" attr(href) ")"; font-size: 0.85em; }
+  }
+}
